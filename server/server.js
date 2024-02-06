@@ -13,8 +13,6 @@ const db = mysql.createConnection({
     database: "library"
 })
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.get("/", (req, res) => {
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
@@ -340,7 +338,6 @@ app.put('/returnBook/:DeweyDec', (req, res) => {
     });
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-});
+app.listen(5000, () => {
+    console.log("Server started on port 5000");
+})
