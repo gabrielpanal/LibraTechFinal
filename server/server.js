@@ -13,6 +13,8 @@ const db = mysql.createConnection({
     database: "library"
 })
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get("/", (req, res) => {
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
