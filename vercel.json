@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "server/server.js", "use": "@vercel/node" },
-    { "src": "client/pages/**/*.tsx", "use": "@vercel/static-build" }
+    { "src": "client/**", "use": "@vercel/static-build" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "server/server.js" },
