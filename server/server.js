@@ -13,7 +13,7 @@ const db = mysql.createConnection({
     database: "baoxccq8j46dw9jr4tdz"
 })
 
-app.get("/sample", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello, World!");
 });
 
