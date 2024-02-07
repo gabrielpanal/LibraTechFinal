@@ -13,11 +13,11 @@ const db = mysql.createConnection({
     database: "baoxccq8j46dw9jr4tdz"
 })
 
-app.get("/", (req, res) => {
-    res.send("Hello, World!");
-});
+// app.get("/", (req, res) => {
+//     res.send("Hello, World!");
+// });
 
-app.get("/allBooks", (req, res) => {
+app.get("/", (req, res) => {
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
         if (err) {
