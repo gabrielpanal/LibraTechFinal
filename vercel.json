@@ -3,5 +3,9 @@
   "builds": [
     { "src": "server/server.js", "use": "@vercel/node" },
     { "src": "client/package.json", "use": "@vercel/static-build" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "server.js" }, 
+    { "src": "/(.*)", "dest": "client/pages/$1" }
   ]
 }
