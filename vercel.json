@@ -8,5 +8,4 @@
     { "src": "/api/(.*)", "dest": "server/server.js" },
     { "src": "/(.*)", "dest": "client/pages/index.tsx" }
 ]
-
 }
