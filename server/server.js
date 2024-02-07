@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     res.send("Hello, World!");
 });
 
-app.get("/allBooks", (req, res) => {
+app.get("/api/allBooks", (req, res) => {
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
         if (err) {
@@ -28,7 +28,7 @@ app.get("/allBooks", (req, res) => {
     })
 })
 
-app.get("/getBook/:DeweyDec", (req, res) => {
+app.get("/api/getBook/:DeweyDec", (req, res) => {
     const sql = "SELECT * FROM books_t WHERE DeweyDec = ?";
     const values = [
         req.params.DeweyDec
@@ -42,7 +42,7 @@ app.get("/getBook/:DeweyDec", (req, res) => {
     })
 })
 
-app.post('/create', (req, res) => {
+app.post('/api/create', (req, res) => {
     const sql = "INSERT INTO books_t (DeweyDec, ISBN, Title, Author, Publisher, Genre, Status) VALUES (?)";
     const values = [
         req.body.DeweyDec,
@@ -63,7 +63,7 @@ app.post('/create', (req, res) => {
     });
 });
 
-app.put('/update/:DeweyDec', (req, res) => {
+app.put('/api/update/:DeweyDec', (req, res) => {
     const sql = "UPDATE books_t SET ISBN = ?, Title = ?, Author = ?, Publisher = ?, Genre = ? WHERE DeweyDec = ?";
     const values = [
         req.body.isbn,
@@ -83,7 +83,7 @@ app.put('/update/:DeweyDec', (req, res) => {
     });
 });
 
-app.delete('/delete/:DeweyDec', (req, res) => {
+app.delete('/api/delete/:DeweyDec', (req, res) => {
     const sql = "DELETE FROM books_t WHERE DeweyDec = ?;";
     const DeweyDec = req.params.DeweyDec;
     
@@ -96,7 +96,7 @@ app.delete('/delete/:DeweyDec', (req, res) => {
     });
 });
 
-app.post('/signup', (req, res) => {
+app.post('/api/signup', (req, res) => {
     const sql = "INSERT INTO student_t (StudentID, LastName, FirstName, MidInitial, Email, ContactNum, Password) VALUES (?)";
     const values = [
         req.body.StudentID,
@@ -117,7 +117,7 @@ app.post('/signup', (req, res) => {
     });
 });
 
-app.post('/adminLogin', (req, res) => {
+app.post('/api/adminLogin', (req, res) => {
     const sql = "SELECT * FROM admin_t WHERE Username = ?";
     const values = [
         req.body.username,
@@ -144,7 +144,7 @@ app.post('/adminLogin', (req, res) => {
     });
 });
 
-app.post('/studentLogin', (req, res) => {
+app.post('/api/studentLogin', (req, res) => {
     const sql = "SELECT * FROM student_t WHERE StudentID = ?";
     const values = [
         req.body.username,
@@ -171,7 +171,7 @@ app.post('/studentLogin', (req, res) => {
     });
 });
 
-app.get("/borrow", (req, res) => {
+app.get("/api/borrow", (req, res) => {
     const sql = "SELECT DeweyDec, Title, Author, Genre, Status FROM books_t WHERE Status = 'Available'"
     db.query(sql, (err, data) => {
         if (err) {
@@ -182,7 +182,7 @@ app.get("/borrow", (req, res) => {
     })
 })
 
-app.get("/adminborrow", (req, res) => {
+app.get("/api/adminborrow", (req, res) => {
     const sql = "SELECT `StudentID`, `DeweyDec`, `Title`, `Author`, `Genre`, `DateBorrow`, `DueDate` FROM `borrow_t`"
     db.query(sql, (err, data) => {
         if (err) {
@@ -193,7 +193,7 @@ app.get("/adminborrow", (req, res) => {
     })
 })
 
-app.get("/getUsers", (req, res) => {
+app.get("/api/getUsers", (req, res) => {
     const sql = "SELECT * FROM student_t"
     db.query(sql, (err, data) => {
         if (err) {
@@ -204,7 +204,7 @@ app.get("/getUsers", (req, res) => {
     })
 })
 
-app.get("/getUser/:StudentID", (req, res) => {
+app.get("/api/getUser/:StudentID", (req, res) => {
     const sql = "SELECT * FROM student_t WHERE StudentID = ?";
     const values = [
         req.params.StudentID
@@ -218,7 +218,7 @@ app.get("/getUser/:StudentID", (req, res) => {
     })
 })
 
-app.delete('/deleteUser/:StudentID', (req, res) => {
+app.delete('/api/deleteUser/:StudentID', (req, res) => {
     const sql = "DELETE FROM student_t WHERE StudentID = ?;";
     const StudentID = req.params.StudentID;
     
@@ -231,7 +231,7 @@ app.delete('/deleteUser/:StudentID', (req, res) => {
     });
 });
 
-app.put('/updateUser/:StudentID', (req, res) => {
+app.put('/api/updateUser/:StudentID', (req, res) => {
     const sql = "UPDATE student_t SET LastName = ?, FirstName = ?, MidInitial = ?, Email = ?, ContactNum = ? WHERE StudentID = ?";
     const values = [
         req.body.lastName,
@@ -251,7 +251,7 @@ app.put('/updateUser/:StudentID', (req, res) => {
     });
 });
 
-app.put('/borrowBook/:DeweyDec', (req, res) => {
+app.put('/api/borrowBook/:DeweyDec', (req, res) => {
     const DeweyDec = req.params.DeweyDec;
 
     const updateSql = `
@@ -295,7 +295,7 @@ app.put('/borrowBook/:DeweyDec', (req, res) => {
     });
 });
 
-app.get("/borrowedBooks/:StudentID", (req, res) => {
+app.get("/api/borrowedBooks/:StudentID", (req, res) => {
     const sql = "SELECT `DeweyDec`, `Title`, `Author`, `Genre`, `DateBorrow`, `DueDate` FROM borrow_t WHERE StudentID = ?";
     const values = [
         req.params.StudentID
@@ -309,7 +309,7 @@ app.get("/borrowedBooks/:StudentID", (req, res) => {
     })
 })
 
-app.put('/returnBook/:DeweyDec', (req, res) => {
+app.put('/api/returnBook/:DeweyDec', (req, res) => {
     const DeweyDec = req.params.DeweyDec;
 
     const updateSql = `

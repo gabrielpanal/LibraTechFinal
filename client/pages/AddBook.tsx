@@ -13,7 +13,7 @@ function AddBook() {
 
     function handleSubmit(event: { preventDefault: () => void }) {
         event.preventDefault()
-        axios.post('http://localhost:5000/create', {DeweyDec, isbn, Title, Author, Publisher, Genre})
+        axios.post('/api/create', {DeweyDec, isbn, Title, Author, Publisher, Genre})
         .then(res => {
             console.log(res)
             window.location.href = "/adminBooks"

@@ -20,7 +20,7 @@ function UpdateBook() {
         }
 
         // Fetch book details using DeweyDec
-        axios.get(`http://localhost:5000/getBook/` + DeweyDec)
+        axios.get(`/api/getBook/` + DeweyDec)
             .then(res => {
                 const bookData = res.data[0]; // Assuming your API response contains book details
                 setIsbn(bookData.ISBN);
@@ -40,7 +40,7 @@ function UpdateBook() {
             return;
         }
 
-        axios.put(`http://localhost:5000/update/` + DeweyDec, { isbn, Title, Author, Publisher, Genre })
+        axios.put(`/api/update/` + DeweyDec, { isbn, Title, Author, Publisher, Genre })
             .then(res => {
                 console.log(res);
                 window.location.href = "/adminBooks";
