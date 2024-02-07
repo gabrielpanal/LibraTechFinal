@@ -13,9 +13,9 @@ const db = mysql.createConnection({
     database: "baoxccq8j46dw9jr4tdz"
 })
 
-// app.get("/", (req, res) => {
-//     res.send("Hello, World!");
-// });
+app.get("/sample", (req, res) => {
+    res.send("Hello, World!");
+});
 
 app.get("/allBooks", (req, res) => {
     const sql = "SELECT * FROM books_t"
