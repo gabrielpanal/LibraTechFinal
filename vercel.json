@@ -6,6 +6,6 @@
   ],
   "routes": [
     { "src": "/sample", "dest": "server/server.js" },
-    { "src": "/(.*)", "dest": "client/" }
+    { "src": "/", "dest": "client/pages/index.tsx" }
   ]
 }
