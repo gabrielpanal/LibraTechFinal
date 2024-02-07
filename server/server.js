@@ -14,7 +14,7 @@ const db = mysql.createConnection({
 })
 
 app.get("/", (req, res) => {
-    res.redirect("/") // Or any other response you want to send
+    res.send("Hello, World!");
 });
 
 app.get("/allBooks", (req, res) => {
