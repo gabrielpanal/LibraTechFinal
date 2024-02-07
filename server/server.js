@@ -18,7 +18,6 @@ const db = mysql.createConnection({
 // });
 
 app.get("/", (req, res) => {
-    res.send("server running")
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
         if (err) {
