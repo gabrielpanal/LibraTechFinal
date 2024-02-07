@@ -13,21 +13,21 @@ const db = mysql.createConnection({
     database: "baoxccq8j46dw9jr4tdz"
 })
 
-// app.get("/", (req, res) => {
-//     res.send("Hello, World!"); // Or any other response you want to send
-// });
-
 app.get("/", (req, res) => {
-    res.redirect("/")
-    const sql = "SELECT * FROM books_t"
-    db.query(sql, (err, data) => {
-        if (err) {
-            console.error(err);
-            return res.status(500).json({ error: "Internal Server Error" });
-        }
-        return res.json(data);
-    })
-})
+    res.redirect("/") // Or any other response you want to send
+});
+
+// app.get("/", (req, res) => {
+//     res.redirect("/")
+//     const sql = "SELECT * FROM books_t"
+//     db.query(sql, (err, data) => {
+//         if (err) {
+//             console.error(err);
+//             return res.status(500).json({ error: "Internal Server Error" });
+//         }
+//         return res.json(data);
+//     })
+// })
 
 app.get("/getBook/:DeweyDec", (req, res) => {
     const sql = "SELECT * FROM books_t WHERE DeweyDec = ?";
