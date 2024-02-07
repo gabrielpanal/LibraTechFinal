@@ -14,19 +14,19 @@ interface Book {
   Status: string;
 }
 
-function AdminBooks() {
+function adminBooks() {
 
     const[books, setBooks] = useState<Book[]>([])
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        axios.get('/api/allBooks')
+        axios.get('http://localhost:5000/')
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
     }, [])
 
   const handleDelete = async (id: any) => {
     try{
-        await axios.delete('/api/delete/' + id)
+        await axios.delete('http://localhost:5000/delete/' + id)
         window.location.reload()
     }catch(err){
         console.log(err);
@@ -99,4 +99,4 @@ function AdminBooks() {
   )
 }
 
-export default AdminBooks
+export default adminBooks

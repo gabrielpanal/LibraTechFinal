@@ -20,7 +20,7 @@ function AdminBorrow() {
 
     useEffect(() => {
         // Fetch book details using DeweyDec
-        axios.get(`/api/adminborrow`)
+        axios.get(`http://localhost:5000/adminborrow`)
           .then(res => {
             const formattedBooks = res.data.map((book: { DateBorrow: Date; DueDate: Date; }) => {
               return {
@@ -36,7 +36,7 @@ function AdminBorrow() {
     
     const returnBook = async (id: any) => {
         try {
-          axios.put(`/api/returnBook/` + id,{});
+          axios.put(`http://localhost:5000/returnBook/` + id,{});
           window.location.reload();
         } catch (error) {
           console.error(error);

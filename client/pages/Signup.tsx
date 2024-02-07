@@ -71,7 +71,7 @@ function Signup() {
     const ContactNum = values.contact
     const Password = values.password
 
-    axios.post('/api/signup', {StudentID, LastN, FirstN, MidInitial, Email, ContactNum, Password})
+    axios.post('http://localhost:5000/signup', {StudentID, LastN, FirstN, MidInitial, Email, ContactNum, Password})
         .then(res => {
             console.log(res)
             window.location.href = "/"

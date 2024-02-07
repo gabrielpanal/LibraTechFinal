@@ -18,14 +18,14 @@ function AdminUsers() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-      axios.get('/api/getUsers')
+      axios.get('http://localhost:5000/getUsers')
       .then(res => setUsers(res.data))
       .catch(err => console.log(err))
   }, [])
 
   const handleDelete = async (id: any) => {
     try{
-        await axios.delete('/api/deleteUser/' + id)
+        await axios.delete('http://localhost:5000/deleteUser/' + id)
         window.location.reload()
     }catch(err){
         console.log(err);

@@ -22,7 +22,7 @@ function StudentBorrow() {
 
   useEffect(() => {
     // Fetch book details using DeweyDec
-    axios.get(`/api/borrowedBooks/` + studentId)
+    axios.get(`http://localhost:5000/borrowedBooks/` + studentId)
       .then(res => {
         const formattedBooks = res.data.map((book: { DateBorrow: Date; DueDate: Date; }) => {
           return {
