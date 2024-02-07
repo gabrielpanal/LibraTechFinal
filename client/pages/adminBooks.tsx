@@ -19,7 +19,7 @@ function AdminBooks() {
     const[books, setBooks] = useState<Book[]>([])
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        axios.get('http://localhost:5000/')
+        axios.get('http://localhost:5000/allBooks')
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
     }, [])
