@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
     res.send("Hello, World!");
 });
 
-app.get("/api/allBooks", (req, res) => {
+app.get("/allBooks", (req, res) => {
     const sql = "SELECT * FROM books_t"
     db.query(sql, (err, data) => {
         if (err) {
