@@ -13,9 +13,10 @@ const db = mysql.createConnection({
     database: "baoxccq8j46dw9jr4tdz"
 })
 
-// app.get("/", (req, res) => {
-//     res.send("Hello, World!"); // Or any other response you want to send
-// });
+app.get("/", (req, res) => {
+    res.send("Hello, World!");
+    res.redirect("/") // Or any other response you want to send
+});
 
 app.get("/allBooks", (req, res) => {
     const sql = "SELECT * FROM books_t"
