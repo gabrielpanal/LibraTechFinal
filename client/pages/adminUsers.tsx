@@ -77,11 +77,11 @@ function AdminUsers() {
                                     <td className="border p-2">{data.Email}</td>
                                     <td className="border p-2">{data.ContactNum}</td>
                                     <td className="border p-2 text-center">
-                                        <Button className='bg-green-800 '>
+                                        <Button className='bg-green-800 w-16'>
                                             <Link href={`/UpdateUser?StudentID=${data.StudentID}`}>Update</Link>
                                         </Button>
                                         <Button onClick={e => handleDelete(data.StudentID)}
-                                        className='bg-green-800'>Delete</Button>
+                                        className='bg-green-800 w-16'>Delete</Button>
                                     </td>
                                 </tr>
                             ))
