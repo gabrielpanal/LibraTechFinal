@@ -86,7 +86,7 @@ function AdminBorrow() {
                                         <td className="border p-2">{data.Genre}</td>
                                         <td className="border p-2">{data.DateBorrow}</td>
                                         <td className="border p-2">{data.DueDate}</td>
-                                        <td className='text-center'>
+                                        <td className="border p-2 text-center">
                                             <Button className='bg-green-800' onClick={e => returnBook(data.DeweyDec)}>Returned</Button>
                                         </td>
                                     </tr>
