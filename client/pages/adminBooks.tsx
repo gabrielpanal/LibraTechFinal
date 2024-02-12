@@ -60,7 +60,7 @@ function AdminBooks() {
         </Button>
         <div>
             <div>
-                <table className='table-fixed'>
+                <table className='table-fixed border border-collapse bg-white' style={{ width: '100%', tableLayout: 'fixed' }}>
                     <thead className="border-b font-medium">
                         <tr 
                         >
