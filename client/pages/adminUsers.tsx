@@ -24,7 +24,7 @@ function AdminUsers() {
   }, [])
 
   const handleDelete = async (id: any) => {
-    const confirmed = window.confirm("Are you sure you want to delete this book?");
+    const confirmed = window.confirm("Are you sure you want to delete this user?");
     
     if(confirmed){
         try{
