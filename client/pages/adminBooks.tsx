@@ -19,14 +19,14 @@ function AdminBooks() {
     const[books, setBooks] = useState<Book[]>([])
     const [searchTerm, setSearchTerm] = useState('');
     useEffect(() => {
-        axios.get('http://libra-tech-final-server.vercel.app/allBooks')
+        axios.get('https://libra-tech-final-server.vercel.app/allBooks')
         .then(res => setBooks(res.data))
         .catch(err => console.log(err))
     }, [])
 
   const handleDelete = async (id: any) => {
     try{
-        await axios.delete('http://libra-tech-final-server.vercel.app/delete/' + id)
+        await axios.delete('https://libra-tech-final-server.vercel.app/delete/' + id)
         window.location.reload()
     }catch(err){
         console.log(err);
