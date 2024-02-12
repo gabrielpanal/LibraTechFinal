@@ -14,7 +14,14 @@ const db = mysql.createConnection({
 })
 
 app.get("/", (req, res) => {
-    res.send("hello po")
+    const sql = "SELECT * FROM books_t"
+    db.query(sql, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({ error: "Internal Server Error" });
+        }
+        return res.json(data);
+    })
 })
 
 app.get("/allBooks", (req, res) => {
