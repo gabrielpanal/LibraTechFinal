@@ -85,7 +85,7 @@ function AdminBooks() {
                                     <td className="border p-2">{data.Genre}</td>
                                     <td className={`border p-2 font-bold text-center ${data.Status === 'Available' ? 'text-green-800' : 'text-red-500'}`}>{data.Status}</td>
                                     <td>
-                                        <Button className='bg-green-800'>
+                                        <Button className='bg-green-800 text-center'>
                                             <Link href={`/UpdateBook?DeweyDec=${data.DeweyDec}`}>Update</Link>
                                         </Button>
                                         <Button onClick={e => handleDelete(data.DeweyDec)}
