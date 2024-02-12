@@ -12,12 +12,16 @@ function AddBook() {
     const [Genre, setGenre] = useState('')
 
     function handleSubmit(event: { preventDefault: () => void }) {
-        event.preventDefault()
-        axios.post('https://libra-tech-final-server.vercel.app/create', {DeweyDec, isbn, Title, Author, Publisher, Genre})
-        .then(res => {
-            console.log(res)
-            window.location.href = "/adminBooks"
-        }).catch(err => console.log(err))
+        const confirmed = window.confirm("Are you sure you want to add this book?");
+    
+        if(confirmed){
+            event.preventDefault()
+            axios.post('https://libra-tech-final-server.vercel.app/create', {DeweyDec, isbn, Title, Author, Publisher, Genre})
+            .then(res => {
+                console.log(res)
+                window.location.href = "/adminBooks"
+            }).catch(err => console.log(err))
+        }
     }
 
 

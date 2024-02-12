@@ -42,21 +42,25 @@ function StudentBooks() {
   }, []);
 
   const borrowBook = async (id: any) => {
-    try {
-      // Fetch book details using DeweyDec
-      const response = await axios.get(`https://libra-tech-final-server.vercel.app/getBook/` + id);
-      const bookData = response.data[0]; // Assuming your API response contains book details
-  
-      var title = bookData.Title
-      var author = bookData.Author
-      var genre = bookData.Genre
+    const confirmed = window.confirm("Are you sure you want to borrow this book?");
+    
+    if(confirmed){
+      try {
+        // Fetch book details using DeweyDec
+        const response = await axios.get(`https://libra-tech-final-server.vercel.app/getBook/` + id);
+        const bookData = response.data[0]; // Assuming your API response contains book details
+    
+        var title = bookData.Title
+        var author = bookData.Author
+        var genre = bookData.Genre
 
-      // Continue with the borrowBook logic
-      axios.put('https://libra-tech-final-server.vercel.app/borrowBook/' + id, { studentId, id, title, author, genre, dateBorrowed, dueDate });
-      console.log("Book borrowed successfully!");
-      window.location.reload();
-    } catch (error) {
-      console.error(error);
+        // Continue with the borrowBook logic
+        axios.put('https://libra-tech-final-server.vercel.app/borrowBook/' + id, { studentId, id, title, author, genre, dateBorrowed, dueDate });
+        console.log("Book borrowed successfully!");
+        window.location.reload();
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
