@@ -100,7 +100,7 @@ function StudentBooks() {
                 <td className="border p-2">{data.Title}</td>
                 <td className="border p-2">{data.Author}</td>
                 <td className="border p-2">{data.Genre}</td>
-                <td className="border p-2">{data.Status}</td>
+                <td className="border p-2 text-green-800 font-bold text-center">{data.Status}</td>
                 <td className="border p-2 text-center">
                   <Button className='bg-green-800' onClick={e => borrowBook(data.DeweyDec)}>Borrow</Button>
                 </td>

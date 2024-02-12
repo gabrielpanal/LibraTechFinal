@@ -64,26 +64,26 @@ function AdminBooks() {
                     <thead className="border-b font-medium">
                         <tr 
                         >
-                            <th>Dewey Decimal</th>
-                            <th>ISBN</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Publisher</th>
-                            <th>Genre</th>
-                            <th>Status</th>
+                            <th className="border p-2">Dewey Decimal</th>
+                            <th className="border p-2">ISBN</th>
+                            <th className="border p-2">Title</th>
+                            <th className="border p-2">Author</th>
+                            <th className="border p-2">Publisher</th>
+                            <th className="border p-2">Genre</th>
+                            <th className="border p-2">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             filteredBooks.map((data, i) => (
                                 <tr key={i}>
-                                    <td>{data.DeweyDec}</td>
-                                    <td>{data.ISBN}</td>
-                                    <td>{data.Title}</td>
-                                    <td>{data.Author}</td>
-                                    <td>{data.Publisher}</td>
-                                    <td>{data.Genre}</td>
-                                    <td>{data.Status}</td>
+                                    <td className="border p-2">{data.DeweyDec}</td>
+                                    <td className="border p-2">{data.ISBN}</td>
+                                    <td className="border p-2">{data.Title}</td>
+                                    <td className="border p-2">{data.Author}</td>
+                                    <td className="border p-2">{data.Publisher}</td>
+                                    <td className="border p-2">{data.Genre}</td>
+                                    <td className={`border p-2 font-bold text-center ${data.Status === 'Available' ? 'text-green-800' : 'text-red-500'}`}>{data.Status}</td>
                                     <td>
                                         <Button className='bg-green-800'>
                                             <Link href={`/UpdateBook?DeweyDec=${data.DeweyDec}`}>Update</Link>
