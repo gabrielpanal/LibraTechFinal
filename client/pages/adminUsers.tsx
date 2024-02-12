@@ -24,6 +24,7 @@ function AdminUsers() {
   }, [])
 
   const handleDelete = async (id: any) => {
+    alert("Are you sure?")
     try{
         await axios.delete('https://libra-tech-final-server.vercel.app/deleteUser/' + id)
         window.location.reload()
