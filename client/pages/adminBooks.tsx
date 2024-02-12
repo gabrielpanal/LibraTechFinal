@@ -25,13 +25,17 @@ function AdminBooks() {
     }, [])
 
   const handleDelete = async (id: any) => {
-    alert("Are you sure?")
-    try{
-        await axios.delete('https://libra-tech-final-server.vercel.app/delete/' + id)
-        window.location.reload()
-    }catch(err){
-        console.log(err);
+    const confirmed = window.confirm("Are you sure you want to delete this book?");
+    
+    if(confirmed){
+        try{
+            await axios.delete('https://libra-tech-final-server.vercel.app/delete/' + id)
+            window.location.reload()
+        }catch(err){
+            console.log(err);
+        }
     }
+    
   }
 
     // Filter books based on the search term
