@@ -36,7 +36,7 @@ function StudentBooks() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/borrow')
+      .get('https://libra-tech-final-server.vercel.app/borrow')
       .then((res) => setBooks(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -44,7 +44,7 @@ function StudentBooks() {
   const borrowBook = async (id: any) => {
     try {
       // Fetch book details using DeweyDec
-      const response = await axios.get(`http://localhost:5000/getBook/` + id);
+      const response = await axios.get(`https://libra-tech-final-server.vercel.app/getBook/` + id);
       const bookData = response.data[0]; // Assuming your API response contains book details
   
       var title = bookData.Title
@@ -52,7 +52,7 @@ function StudentBooks() {
       var genre = bookData.Genre
 
       // Continue with the borrowBook logic
-      axios.put('http://localhost:5000/borrowBook/' + id, { studentId, id, title, author, genre, dateBorrowed, dueDate });
+      axios.put('https://libra-tech-final-server.vercel.app/borrowBook/' + id, { studentId, id, title, author, genre, dateBorrowed, dueDate });
       console.log("Book borrowed successfully!");
       window.location.reload();
     } catch (error) {

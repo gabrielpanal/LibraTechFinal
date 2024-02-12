@@ -20,7 +20,7 @@ function UpdateBook() {
         }
 
         // Fetch book details using DeweyDec
-        axios.get(`http://localhost:5000/getUser/` + StudentID)
+        axios.get(`https://libra-tech-final-server.vercel.app/getUser/` + StudentID)
             .then(res => {
                 const userData = res.data[0]; // Assuming your API response contains book details
                 setLastName(userData.LastName);
@@ -40,7 +40,7 @@ function UpdateBook() {
             return;
         }
 
-        axios.put(`http://localhost:5000/updateUser/` + StudentID, { lastName, firstName, midInitial, email, contactNum })
+        axios.put(`https://libra-tech-final-server.vercel.app/updateUser/` + StudentID, { lastName, firstName, midInitial, email, contactNum })
             .then(res => {
                 console.log(res);
                 window.location.href = "/adminUsers";

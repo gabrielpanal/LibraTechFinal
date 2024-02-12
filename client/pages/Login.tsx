@@ -48,7 +48,7 @@ function Login() {
     const username = values.username
     const password = values.password
 
-    axios.post('http://localhost:5000/studentLogin', {username, password})
+    axios.post('https://libra-tech-final-server.vercel.app/studentLogin', {username, password})
         .then(res => {
             if (res.data === "Login Successfully.") {
               router.push({

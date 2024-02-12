@@ -43,7 +43,7 @@ function Login() {
     const username = values.username
     const password = values.password
 
-    axios.post('http://localhost:5000/adminLogin', {username, password})
+    axios.post('https://libra-tech-final-server.vercel.app/adminLogin', {username, password})
         .then(res => {
             console.log(res)
             if (res.data === "Login Successfully.") {

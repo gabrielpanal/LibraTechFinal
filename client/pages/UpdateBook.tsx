@@ -20,7 +20,7 @@ function UpdateBook() {
         }
 
         // Fetch book details using DeweyDec
-        axios.get(`http://localhost:5000/getBook/` + DeweyDec)
+        axios.get(`https://libra-tech-final-server.vercel.app/getBook/` + DeweyDec)
             .then(res => {
                 const bookData = res.data[0]; // Assuming your API response contains book details
                 setIsbn(bookData.ISBN);
@@ -40,7 +40,7 @@ function UpdateBook() {
             return;
         }
 
-        axios.put(`http://localhost:5000/update/` + DeweyDec, { isbn, Title, Author, Publisher, Genre })
+        axios.put(`https://libra-tech-final-server.vercel.app/update/` + DeweyDec, { isbn, Title, Author, Publisher, Genre })
             .then(res => {
                 console.log(res);
                 window.location.href = "/adminBooks";

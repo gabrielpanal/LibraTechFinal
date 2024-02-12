@@ -20,7 +20,7 @@ function AdminBorrow() {
 
     useEffect(() => {
         // Fetch book details using DeweyDec
-        axios.get(`http://localhost:5000/adminborrow`)
+        axios.get(`https://libra-tech-final-server.vercel.app/adminborrow`)
           .then(res => {
             const formattedBooks = res.data.map((book: { DateBorrow: Date; DueDate: Date; }) => {
               return {
@@ -36,7 +36,7 @@ function AdminBorrow() {
     
     const returnBook = async (id: any) => {
         try {
-          axios.put(`http://localhost:5000/returnBook/` + id,{});
+          axios.put(`https://libra-tech-final-server.vercel.app/returnBook/` + id,{});
           window.location.reload();
         } catch (error) {
           console.error(error);
